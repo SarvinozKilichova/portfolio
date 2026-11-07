@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Sarvinoz Kilichova — Full-stack dasturchi (Python, Django) va IT o'qituvchi. Loyihalar, tajriba va aloqa.">
+<title>Sarvinoz Kilichova</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: big typographic hero over a cobalt "Rishton tile" accent, then wide project rows alternating screenshot/text, timeline, skills, contact band. */
+:root{
+  --bg:#f5f7fb; --surface:#ffffff; --ink:#131a33; --muted:#5a6280; --line:#dfe3ee;
+  --cobalt:#2348d6; --cobalt-soft:#e6ebfc; --turq:#0e9fa6; --sun:#e8a21b;
+  --shadow:0 1px 2px rgba(19,26,51,.06),0 12px 32px -12px rgba(19,26,51,.18);
+  --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"Onest",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1122; --surface:#161c33; --ink:#eef1fa; --muted:#a2a9c4; --line:#283050;
+  --cobalt:#7d97ff; --cobalt-soft:#1d2650; --turq:#3fd0d6; --sun:#f3b84a;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 36px -14px rgba(0,0,0,.6); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1122; --surface:#161c33; --ink:#eef1fa; --muted:#a2a9c4; --line:#283050;
+  --cobalt:#7d97ff; --cobalt-soft:#1d2650; --turq:#3fd0d6; --sun:#f3b84a;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 36px -14px rgba(0,0,0,.6); color-scheme:dark}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);line-height:1.05;text-wrap:balance;margin:0;letter-spacing:-.02em}
+.eyebrow{font-family:var(--f-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--cobalt)}
+.mono{font-family:var(--f-mono)}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-family:var(--f-display);font-weight:800;font-size:20px;text-decoration:none;display:flex;align-items:center;gap:10px}
+.tile{width:26px;height:26px;border-radius:7px;background:
+  radial-gradient(circle at 50% 50%,var(--surface) 0 3px,transparent 4px),
+  conic-gradient(from 45deg,var(--cobalt) 0 25%,var(--turq) 0 50%,var(--cobalt) 0 75%,var(--turq) 0)}
+.navlinks{display:flex;gap:22px;font-size:15px}
+.navlinks a{text-decoration:none;color:var(--muted)}
+.navlinks a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;text-decoration:none;border-radius:999px;padding:11px 20px;border:1px solid transparent;cursor:pointer;font-family:inherit;transition:transform .15s ease,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--cobalt);color:#fff}
+:root[data-theme="dark"] .btn-primary{color:#0d1122}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-primary{color:#0d1122}}
+.btn-ghost{border-color:var(--line);background:var(--surface);color:var(--ink)}
+@media (max-width:760px){.navlinks{display:none}}
+
+/* hero */
+.hero{padding-block:72px 56px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(48px,8.4vw,108px);font-weight:800;letter-spacing:-.04em;line-height:.92}
+.hero h1 span{display:block;color:var(--cobalt)}
+.role{font-family:var(--f-display);font-size:clamp(20px,2.4vw,26px);font-weight:500;margin:22px 0 14px}
+.lead{color:var(--muted);max-width:56ch;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);margin-bottom:22px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--turq);box-shadow:0 0 0 4px color-mix(in srgb,var(--turq) 25%,transparent)}
+.stack{position:relative;aspect-ratio:1/1;max-width:100%}
+.stack figure{position:absolute;margin:0;border-radius:14px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow);border:1px solid var(--line)}
+.stack img{display:block;width:100%;height:auto}
+.stack .s1{width:78%;left:0;top:4%;transform:rotate(-3deg)}
+.stack .s2{width:72%;right:0;top:34%;transform:rotate(2.5deg)}
+.stack .s3{width:30%;left:8%;bottom:0;border-radius:22px;border:5px solid var(--ink)}
+.stack figure{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.stack .s2{animation-delay:.12s}.stack .s3{animation-delay:.24s}
+@keyframes rise{from{translate:0 18px}to{translate:0 0}}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.stack{max-width:520px;margin-inline:auto;width:100%}}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:56px}
+.facts div{padding:22px 20px;border-left:1px solid var(--line)}
+.facts div:first-child{border-left:0;padding-left:0}
+.facts b{display:block;font-family:var(--f-display);font-size:34px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.facts span{color:var(--muted);font-size:14px}
+@media (max-width:700px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(3){border-left:0;padding-left:0}.facts div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+section{padding-block:88px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.sec-head h2{font-size:clamp(34px,5vw,56px);font-weight:700;margin-top:10px}
+.sec-head p{color:var(--muted);max-width:44ch;margin:0}
+
+/* projects */
+.projects{display:grid;gap:72px}
+.proj{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:center}
+.proj:nth-child(even) .shot{order:2}
+.shot{min-width:0}
+.browser{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.bar .url{margin-left:10px;font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.browser img{display:block;width:100%;height:auto}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--line)}
+.phone-pair{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:end}
+.phone{border:6px solid var(--ink);border-radius:28px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow);max-width:240px;justify-self:center}
+.phone img{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top}
+.phone-pair .browser img{aspect-ratio:16/10;object-fit:cover;object-position:top}
+.phone-pair .phone{max-width:170px}
+.info{min-width:0}
+.num{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.info h3{font-size:clamp(28px,3.4vw,40px);font-weight:700;margin:8px 0 6px}
+.kind{color:var(--cobalt);font-weight:600;margin:0 0 14px}
+.info p{color:var(--muted);margin:0 0 18px}
+.feat{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:8px}
+.feat li{display:flex;gap:10px;align-items:baseline}
+.feat li::before{content:"";flex:none;width:7px;height:7px;transform:rotate(45deg) translateY(-2px);background:var(--turq)}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.note{font-size:13px;color:var(--muted);font-family:var(--f-mono)}
+@media (max-width:900px){.proj{grid-template-columns:1fr;gap:24px}.proj:nth-child(even) .shot{order:0}}
+
+/* KPI feature */
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,44px);margin-top:72px}
+.kpi-top{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:start}
+.kpi-main{min-width:0}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.thumbs button{padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;cursor:zoom-in;background:var(--bg);aspect-ratio:16/9}
+.thumbs button[aria-current="true"]{outline:2px solid var(--cobalt);outline-offset:2px}
+.thumbs img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.kpi-main .browser img{aspect-ratio:1280/582;object-fit:cover;object-position:top}
+.cap{margin-top:10px;font-size:14px;color:var(--muted)}
+@media (max-width:900px){.kpi-top{grid-template-columns:1fr}}
+
+/* experience */
+.tl{list-style:none;margin:0;padding:0;display:grid}
+.tl li{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--line)}
+.tl li:last-child{border-bottom:1px solid var(--line)}
+.when{font-family:var(--f-mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.when small{display:block;color:var(--cobalt);margin-top:4px}
+.tl h3{font-size:23px;font-weight:700}
+.tl .org{color:var(--muted);margin:4px 0 8px}
+.tl p{margin:0;max-width:62ch}
+@media (max-width:640px){.tl li{grid-template-columns:1fr;gap:8px}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sk{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px}
+.sk h3{font-size:20px;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--f-mono);font-size:13px;padding:6px 11px;border-radius:8px;background:var(--cobalt-soft);color:var(--ink)}
+.langs{display:grid;gap:14px}
+.lang{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center;font-size:15px}
+.lang .lvl{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.meter{grid-column:1/-1;display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.meter i{height:6px;border-radius:3px;background:var(--line)}
+.meter i.on{background:var(--turq)}
+.edu{margin-top:20px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 26px}
+.edu b{font-family:var(--f-display);font-size:30px;color:var(--cobalt)}
+@media (max-width:900px){.skills{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--cobalt);color:#fff;border-radius:28px;padding:clamp(28px,6vw,72px);display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+:root[data-theme="dark"] .contact{color:#0d1122}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .contact{color:#0d1122}}
+.contact h2{font-size:clamp(36px,5.5vw,64px);font-weight:800}
+.contact p{opacity:.85;margin:16px 0 0;max-width:42ch}
+.clist{display:grid;gap:12px;position:relative}
+.crow{display:flex;align-items:center;justify-content:space-between;gap:12px;background:color-mix(in srgb,currentColor 12%,transparent);border-radius:14px;padding:14px 16px;min-width:0}
+.crow div{min-width:0}
+.crow small{display:block;font-size:12px;opacity:.75;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.06em}
+.crow span,.crow a{font-weight:600;overflow-wrap:anywhere;user-select:all}
+.copy{flex:none;font:inherit;font-size:13px;font-weight:600;border:0;border-radius:999px;padding:7px 12px;cursor:pointer;background:var(--surface);color:var(--ink)}
+.contact::after{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;opacity:.14;border-radius:40px;transform:rotate(18deg);background:
+  radial-gradient(circle,currentColor 0 18px,transparent 19px),conic-gradient(from 45deg,currentColor 0 25%,transparent 0 50%,currentColor 0 75%,transparent 0);background-size:65px 65px;pointer-events:none}
+@media (max-width:900px){.contact{grid-template-columns:1fr}}
+footer{padding-block:36px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);width:100%}
+dialog::backdrop{background:rgba(8,10,20,.82)}
+dialog img{width:100%;border-radius:12px;display:block}
+dialog .close{position:absolute;top:10px;right:10px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="tile" aria-hidden="true"></span>Sarvinoz</a>
+    <div class="navlinks">
+      <a href="#loyihalar">Loyihalar</a>
+      <a href="#tajriba">Tajriba</a>
+      <a href="#konikmalar">Ko'nikmalar</a>
+      <a href="#aloqa">Aloqa</a>
+    </div>
+    <a class="btn btn-primary" href="#aloqa">Bog'lanish</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="status"><span class="dot"></span>Yangi loyihalar va ishga ochiq</div>
+        <h1>Sarvinoz <span>Kilichova</span></h1>
+        <p class="role">Full-stack dasturchi va IT o'qituvchi</p>
+        <p class="lead">Python va Django asosida backend, REST API va moslashuvchan veb-saytlar yarataman. Stomatologiya klinikasi uchun navbat tizimi, kurslar uchun sotuv sahifalari, CRM va hududiy KPI tizimlari ustida ishlaganman. IT Park'da dasturchi va mentor bo'lib ishlaganman.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#loyihalar">Loyihalarni ko'rish ↓</a>
+          <a class="btn btn-ghost" href="https://github.com/SarvinozKilichova" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="stack" aria-hidden="true">
+        <figure class="s1"><img src="img/dentist.webp" alt=""></figure>
+        <figure class="s2"><img src="img/kpi-dashboard.webp" alt=""></figure>
+        <figure class="s3"><img src="img/kurs-m.webp" alt=""></figure>
+      </div>
+    </div>
+    <div class="facts">
+      <div><b>3+ yil</b><span>dasturlash va o'qitish tajribasi</span></div>
+      <div><b>5</b><span>ishga tushirilgan loyiha</span></div>
+      <div><b>C1</b><span>ingliz tili darajasi</span></div>
+      <div><b>5 til</b><span>o'zbek, ingliz, rus, koreys, turk</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="loyihalar">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Tanlangan ishlar</div><h2>Loyihalar</h2></div>
+      <p>Haqiqiy mijozlar uchun qilingan va hozir ishlab turgan saytlar. Screenshotlar jonli saytlardan olingan.</p>
+    </div>
+
+    <div class="projects">
+      <article class="proj">
+        <div class="shot">
+          <div class="browser">
+            <div class="bar"><i></i><i></i><i></i><span class="url">dentist-taupe-ten.vercel.app</span></div>
+            <div class="duo"><img src="img/dentist.webp" alt="Dentalis bosh sahifasi" loading="lazy"><img src="img/dentist2.webp" alt="Dentalis xizmatlar va narxlar bo'limi" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="info">
+          <div class="num">Loyiha · Booking tizimi</div>
+          <h3>Dentalis</h3>
+          <p class="kind">Stomatologiya markazi uchun onlayn navbat tizimi</p>
+          <p>Bemor xizmatni tanlaydi, narx va davomiyligini ko'radi va qulay vaqtga onlayn yoziladi.</p>
+          <ul class="feat">
+            <li>Xizmatlar katalogi: narx (so'mda) va seans davomiyligi</li>
+            <li>Har bir xizmatdan to'g'ridan-to'g'ri qabulga yozilish</li>
+            <li>Shifokorlar, narxlar va klinika haqida bo'limlar</li>
+          </ul>
+          <div class="links"><a class="btn btn-primary" href="https://dentist-taupe-ten.vercel.app/" target="_blank" rel="noopener">Saytni ochish ↗</a></div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="shot">
+          <div class="browser">
+            <div class="bar"><i></i><i></i><i></i><span class="url">nutrition-demo-seven.vercel.app</span></div>
+            <div class="duo"><img src="img/nutrition.webp" alt="NutriLife vebinar sahifasi" loading="lazy"><img src="img/nutrition2.webp" alt="NutriLife vebinar dasturi bo'limi" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="info">
+          <div class="num">Loyiha · Landing sahifa</div>
+          <h3>NutriLife</h3>
+          <p class="kind">Nutritsiologiya vebinari uchun ro'yxatdan o'tish sahifasi</p>
+          <p>"7 kunda sog'lom ovqatlanishni boshlang" bepul onlayn vebinariga tashrif buyuruvchilarni ro'yxatdan o'tkazadi.</p>
+          <ul class="feat">
+            <li>Vebinar boshlanishigacha teskari sanoq taymeri</li>
+            <li>Vebinar dasturi, natijalar va FAQ bo'limlari</li>
+            <li>Ekranda doim ko'rinib turadigan "Joyni band qilish" tugmasi</li>
+          </ul>
+          <div class="links"><a class="btn btn-primary" href="https://nutrition-demo-seven.vercel.app/?v-2" target="_blank" rel="noopener">Saytni ochish ↗</a></div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="shot">
+          <div class="phone-pair">
+            <div class="browser">
+              <div class="bar"><i></i><i></i><i></i><span class="url">kurs.ustoz-zakariyya.uz</span></div>
+              <img src="img/kurs.webp" alt="Ustoz Zakariyya kurs sahifasi, desktop" loading="lazy">
+            </div>
+            <div class="phone"><img src="img/kurs-m.webp" alt="Ustoz Zakariyya kurs sahifasi, telefonda" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="info">
+          <div class="num">Loyiha · Kurs sotuvi</div>
+          <h3>Ustoz Zakariyya</h3>
+          <p class="kind">Arab tili o'qituvchisi uchun kurs sahifasi</p>
+          <p>"3 oyda arab tilida o'qishni o'rganing" kursiga o'quvchilarni oldindan ro'yxatdan o'tkazadigan sahifa. Asosan telefon uchun yasalgan.</p>
+          <ul class="feat">
+            <li>Telefon ekraniga moslab yasalgan dizayn</li>
+            <li>Ro'yxatdan o'tish formasi va kurs afzalliklari</li>
+          </ul>
+          <div class="links"><a class="btn btn-primary" href="https://kurs.ustoz-zakariyya.uz" target="_blank" rel="noopener">Saytni ochish ↗</a></div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="shot">
+          <div class="browser">
+            <div class="bar"><i></i><i></i><i></i><span class="url">crm.ustoz-zakariyya.uz/login</span></div>
+            <img src="img/crm.webp" alt="CRM tizimiga kirish sahifasi" loading="lazy">
+          </div>
+        </div>
+        <div class="info">
+          <div class="num">Loyiha · Ichki tizim</div>
+          <h3>CRM tizimi</h3>
+          <p class="kind">Ustoz Zakariyya kurslari uchun CRM</p>
+          <p>Kurs jamoasi uchun ichki boshqaruv tizimi. Tizim yopiq, unga faqat hisob orqali kiriladi.</p>
+          <ul class="feat">
+            <li>Email va parol bilan kirish, parolni tiklash</li>
+            <li>Yangi foydalanuvchilarni ro'yxatdan o'tkazish</li>
+          </ul>
+          <div class="links"><a class="btn btn-ghost" href="https://crm.ustoz-zakariyya.uz" target="_blank" rel="noopener">Kirish sahifasi ↗</a></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="kpi" id="kpi">
+      <div class="kpi-top">
+        <div class="info">
+          <div class="num">Loyiha · Davlat tashkiloti</div>
+          <h3>Siyosiy partiya KPI tizimi</h3>
+          <p class="kind">A'zolar hisobi va hududlar kesimida tahlil</p>
+          <p>Partiyaning respublika, viloyat va tuman kengashlari uchun yagona tizim. A'zolar va boshlang'ich partiya tashkilotlarini (BPT) hisobga oladi va hisobotlarni avtomatik tuzadi.</p>
+          <ul class="feat">
+            <li>Bosh sahifada so'nggi 30 kunlik dinamika va viloyatlar ulushi grafiklari</li>
+            <li>A'zolar ro'yxati: sana bo'yicha filtr, qidiruv, chop etish va eksport</li>
+            <li>Ijtimoiy tarkib bo'yicha tayyor hisobotlar (ilovalar shaklida)</li>
+            <li>Kengashlar foydalanuvchilari, ikki bosqichli kirish va bloklash</li>
+          </ul>
+          <p class="note">Yopiq tizim. Screenshotlardagi shaxsiy ma'lumotlar xiralashtirilgan.</p>
+        </div>
+        <div class="kpi-main">
+          <div class="browser">
+            <div class="bar"><i></i><i></i><i></i><span class="url" id="kpiUrl">KPI tizimi · Bosh sahifa</span></div>
+            <button type="button" id="kpiOpen" style="all:unset;cursor:zoom-in;display:block"><img id="kpiImg" src="img/kpi-dashboard.webp" alt="KPI tizimi bosh sahifasi"></button>
+          </div>
+          <div class="thumbs" role="group" aria-label="KPI tizimi sahifalari">
+            <button type="button" aria-current="true" data-src="img/kpi-dashboard.webp" data-cap="Bosh sahifa: grafiklar va ro'yxatlar"><img src="img/kpi-dashboard.webp" alt="Bosh sahifa" loading="lazy"></button>
+            <button type="button" data-src="img/kpi-members.webp" data-cap="A'zolar ro'yxati (shaxsiy ma'lumotlar yashirilgan)"><img src="img/kpi-members.webp" alt="A'zolar ro'yxati" loading="lazy"></button>
+            <button type="button" data-src="img/kpi-report.webp" data-cap="Hisobot: 30 yoshgacha a'zolarning ijtimoiy tarkibi"><img src="img/kpi-report.webp" alt="Hisobot" loading="lazy"></button>
+            <button type="button" data-src="img/kpi-users.webp" data-cap="Sozlamalar: foydalanuvchilar va ikki bosqichli kirish"><img src="img/kpi-users.webp" alt="Foydalanuvchilar" loading="lazy"></button>
+          </div>
+          <div class="cap" id="kpiCap">Bosh sahifa: grafiklar va ro'yxatlar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tajriba">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Ish tajribasi</div><h2>Tajriba</h2></div>
+      <p>Jami 3 yil 5 oy. Dasturlash, mentorlik va texnik tarjima.</p>
+    </div>
+    <ol class="tl">
+      <li><div class="when">So'nggi yillar<small>Frilans</small></div><div><h3>Full-stack dasturchi</h3><div class="org">Frilans · masofaviy</div><p>Mijozlar uchun veb-saytlar va landing sahifalar yaratdim. Amaliy loyihalarda Django backend ko'nikmalarimni rivojlantirdim.</p></div></li>
+      <li><div class="when">2021.07 – 2023.09<small>2 yil 3 oy</small></div><div><h3>Dasturchi / O'qituvchi</h3><div class="org">IT Park · Jizzax</div><p>Dasturchi va mentor bo'lib ishladim: loyihalar yozdim va o'quvchilarga dasturlashni o'rgatdim.</p></div></li>
+      <li><div class="when">2022.02 – 2022.07<small>6 oy</small></div><div><h3>Mentor</h3><div class="org">Qalb Nuri nodavlat tashkiloti · Jizzax</div><p>Tashkilot ochgan ingliz tili va IT kurslarida mentorlik qildim.</p></div></li>
+      <li><div class="when">2020.11 – 2021.03<small>5 oy</small></div><div><h3>Veb-sayt dasturchisi</h3><div class="org">Loyiha asosida</div><p>Ma'lumotlarni qo'shish, tahrirlash, o'chirish va tahlil qilish imkoniyati bor saytlarni noldan yaratdim.</p></div></li>
+      <li><div class="when">2019.06 – 2019.09<small>4 oy</small></div><div><h3>Tarjimon</h3><div class="org">Khan Academy Uzbek</div><p>Matematika va fizika darslarini ingliz tilidan o'zbek tiliga tarjima qildim.</p></div></li>
+      <li><div class="when">2018.11 – 2019.03<small>5 oy</small></div><div><h3>Onlayn xodim</h3><div class="org">mturk.com</div><p>Ma'lumotlarni kiritish, tekshirish va solishtirish.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="konikmalar">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Texnologiyalar</div><h2>Ko'nikmalar</h2></div>
+      <p>Asosiy yo'nalishim backend: Python va Django. Frontendni ham o'zim yozaman.</p>
+    </div>
+    <div class="skills">
+      <div class="sk"><h3>Backend</h3><div class="chips">
+        <span class="chip">Python</span><span class="chip">Django</span><span class="chip">Django REST Framework</span><span class="chip">REST API</span><span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">MySQL</span><span class="chip">SQL</span></div></div>
+      <div class="sk"><h3>Frontend va vositalar</h3><div class="chips">
+        <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">jQuery</span><span class="chip">Ajax</span><span class="chip">Bootstrap</span><span class="chip">Twig</span><span class="chip">Git / GitHub</span></div></div>
+      <div class="sk"><h3>Tillar</h3><div class="langs" id="langs"></div></div>
+    </div>
+    <div class="edu">
+      <b>2021</b>
+      <div><strong>Bucheon University in Tashkent</strong><br><span style="color:var(--muted)">Oliy ma'lumot · Maktabgacha ta'lim, o'qituvchi</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="aloqa" style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Birga ishlaymizmi?</h2>
+        <p>To'liq stavka, yarim stavka yoki bitta loyiha. Ofisda, masofaviy yoki gibrid formatda ishlay olaman. Eng qulay aloqa yo'li email.</p>
+      </div>
+      <div class="clist">
+        <div class="crow"><div><small>Email</small><span id="c-email">sarvinoz20161111@gmail.com</span></div><button class="copy" type="button" data-copy="c-email">Nusxalash</button></div>
+        <div class="crow"><div><small>Telefon</small><span id="c-tel">+998 90 539 40 12</span></div><button class="copy" type="button" data-copy="c-tel">Nusxalash</button></div>
+        <div class="crow"><div><small>GitHub</small><a href="https://github.com/SarvinozKilichova" target="_blank" rel="noopener">github.com/SarvinozKilichova</a></div><a class="copy" style="text-decoration:none" href="https://github.com/SarvinozKilichova" target="_blank" rel="noopener">Ochish ↗</a></div>
+      </div>
+    </div>
+    <footer><span>© 2026 Sarvinoz Kilichova</span><span>Full-stack dasturchi · IT o'qituvchi</span></footer>
+  </div>
+</section>
+
+<dialog id="lb"><button class="copy close" type="button" id="lbClose">Yopish ✕</button><img id="lbImg" alt=""></dialog>
+
+<script>
+// languages with CEFR meter (A1..C2)
+const L=[["O'zbek","Ona tili",6],["Ingliz","C1",5],["Rus","B1",3],["Koreys","A2",2],["Turk","A2",2]];
+document.getElementById('langs').innerHTML=L.map(([n,l,v])=>`<div class="lang"><span>${n}</span><span class="lvl">${l}</span><div class="meter" aria-hidden="true">${[...Array(6)].map((_,i)=>`<i class="${i<v?'on':''}"></i>`).join('')}</div></div>`).join('');
+
+// KPI gallery
+const img=document.getElementById('kpiImg'),cap=document.getElementById('kpiCap'),url=document.getElementById('kpiUrl');
+document.querySelectorAll('.thumbs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.thumbs button').forEach(x=>x.removeAttribute('aria-current'));
+  b.setAttribute('aria-current','true');img.src=b.dataset.src;img.alt=b.dataset.cap;cap.textContent=b.dataset.cap;
+  url.textContent='KPI tizimi · '+b.dataset.cap.split(':')[0].split(' (')[0];
+}));
+const lb=document.getElementById('lb');
+document.getElementById('kpiOpen').addEventListener('click',()=>{document.getElementById('lbImg').src=img.src;lb.showModal()});
+document.getElementById('lbClose').addEventListener('click',()=>lb.close());
+lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+
+// copy buttons
+document.querySelectorAll('button[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+  const el=document.getElementById(b.dataset.copy),t=el.textContent;
+  const done=()=>{b.textContent='Nusxalandi';setTimeout(()=>b.textContent='Nusxalash',1600)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Belgilandi'};
+  try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
+}));
+</script>
+</body>
+</html>
